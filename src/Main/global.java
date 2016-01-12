@@ -28,6 +28,9 @@ public class global {
 	//see fileFormat.java for full list of file formats supported by DroFFS
 	public static String fuzzFileFormat = fileFormat.pdf;
 	
+	//Specify the number of mutated test cases generated for each source file
+	public static int noOfMutatedTestCasesPerSourceFile = 50;
+	
 	//Specify the number of test cases for each test batch 
 	public static int noOfTestCasesInBatch = 50;
 	

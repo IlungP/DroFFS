@@ -21,14 +21,22 @@ public class main {
 	private static String response = "";
 
 	public static void main(String[] args) {
-		//preparing environment for fuzzing process
-		prepareEnvironment();
+		//create test cases from source files
+		TestCaseAlg.radamsaGenerator gen = new TestCaseAlg.radamsaGenerator(global.noOfMutatedTestCasesPerSourceFile);
+		boolean availTestCases = gen.generateTestCases();
 		
-		//start fuzzing process
-		fuzzing.startFuzzing(global.fuzzFileFormat);
-		
-		//call Automatic Log Checker (ALoC) to provide summary of errors found
-		logChecker.startALoC();
+		if(availTestCases){
+			//preparing environment for fuzzing process
+			prepareEnvironment();
+			
+			//start fuzzing process
+			fuzzing.startFuzzing(global.fuzzFileFormat);
+			
+			//call Automatic Log Checker (ALoC) to provide summary of errors found
+			logChecker.startALoC();
+		}else{
+			System.out.println("No source files found. Operation aborted!!");
+		}
 	}
 	
 	
@@ -110,5 +118,4 @@ public class main {
 			System.out.println(ex.toString());
 		}
 	}
-	
 }
