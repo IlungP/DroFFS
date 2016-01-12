@@ -10,6 +10,7 @@ To run DroFFS, the following software is required:
 <li>Java IDE (i.e. Eclipse, etc.)</li>
 <li>Android SDK with ADB (Android Debug Bridge) and AAPT (Android Asset Packaging Tool) tools</li>
 <li>Android Emulator or Rooted Android Device</li>
+<li>Python 2.7 if running radamsa mutator</li>
 </ol>
 
 ##Steps to run DroFFS
